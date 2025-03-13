@@ -1,26 +1,24 @@
 import nodemailer from "nodemailer";
 
-export async function sendPasswordResetEmail(email, resetToken) {
+export async function sendPasswordResetEmail(email, resetLink) {
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail", // Or use SMTP settings
+      service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER, // Your email
-        pass: process.env.EMAIL_PASS, // Your email app password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
-
-    const resetLink = `${process.env.NEXTAUTH_URL}/reset-password/new?token=${resetToken}`;
 
     await transporter.sendMail({
       from: `"Support" <${process.env.EMAIL_USER}>`,
       to: email,
-      subject: "Password Reset Request",
+      subject: "Reset Password Request",
       html: `
-        <p>You requested a password reset.</p>
-        <p>Click the link below to set a new password:</p>
+        <p>Anda meminta reset password.</p>
+        <p>Klik link di bawah ini untuk mengatur password baru:</p>
         <a href="${resetLink}" style="background-color:blue; padding:10px 20px; color:white; text-decoration:none; border-radius:5px;">Reset Password</a>
-        <p>If you didn’t request this, please ignore this email.</p>
+        <p>Jika Anda tidak meminta ini, abaikan email ini.</p>
       `,
     });
 
