@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+/* 🔥 Glowing Effect */
+/* 🔥 Glowing Effect */
+/* 🔥 Glowing Effect */
+/* 🔥 Glowing Effect */
+@keyframes glow {
+  0% { box-shadow: 0 0 10px #ffd700; }
+  50% { box-shadow: 0 0 20px #ffd700, 0 0 30px #ffa500; }
+  100% { box-shadow: 0 0 10px #ffd700; }
+}
+
+/* 🎨 Article Card Styling */
+.article-card {
+  background: linear-gradient(to bottom, #222, #111); /* Dark background */
+  border: 2px solid #ffd700; /* Gold Border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  animation: glow 1.5s infinite alternate;
+}
+
+.article-title {
+  color: #ffd700; /* Gold title */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.article-excerpt {
+  color: #ddd; /* Light grey text */
+  font-size: 1rem;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #0044ff; /* Blue button */
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.read-more:hover {
+  background-color: #0022aa;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+.pagination button {
+  padding: 5px 10px;
+  background: gold;
+  color: black;
+  cursor: pointer;
+}
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Footer */
+.footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+@import "react-quill/dist/quill.snow.css";
+
+/* ✅ Ensure Quill Content Looks Proper */
+.quill-content h1 {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+.quill-content h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.quill-content h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.quill-content p {
+  font-size: 1rem;
+  color: #ddd;
+}
+.quill-content strong {
+  font-weight: bold;
+}
+.quill-content em {
+  font-style: italic;
+}
+.quill-content u {
+  text-decoration: underline;
+}
